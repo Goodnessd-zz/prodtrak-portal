@@ -1,19 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Header from './Components/Header/Header'
+import AdminPage from './Pages/AdminPage/AdminPage'
+import CourseOverviewPage from './Pages/CourseOverviewPage/CourseOverviewPage'
+import AuthHomePage from './Pages/AuthHomePage/AuthHomePage'
+import UnAuthHomePage from './Pages/UnAuthHomePage/UnAuthHomePage'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <Router>
+        <div className="App">
+          <Header/>
+          <Switch>
+            <Route path = "/" component = {UnAuthHomePage}/>
+            <Route path = "/home" component = {AuthHomePage}/>
+            <Route path = "/courses" component = {CourseOverviewPage}/>
+            <Route path = "/admin" component = {AdminPage}/>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }
