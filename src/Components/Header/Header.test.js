@@ -12,5 +12,4 @@ describe('Header Component', () => {
 
     expect(wrapper.exists()).toBe(true);
   });
-
 });
